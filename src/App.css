@@ -1,71 +1,11 @@
-.botones {
-  display: flex;
-  align-items: center;
-  border-color: #475569;
-  gap: 7px;
-}
-
-.boton-contador {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border-radius: 100px;
-  border: 2px solid #cbd4e1;
-  margin: 5px;
-  height: 60.36px;
-  width: 60.36px;
-  background-color: white;
-  cursor: pointer;
-  color: #64748b;
-}
-
-.boton-imagenes {
-  border-radius: 100px;
-  padding: 0;
-  margin: 5px;
-  height: 50px;
-  width: 50px;
-  background-color: white;
-  border: 0px;
-
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.imagen-boton {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.cantidad-orden {
-  font-size: 23px;
-  color: #0f1a2a;
-  margin: 5px;
+body {
+  font-family: sans-serif;
 }
 
 h1,
 h2 {
   color: #475569;
   /* color: rgba(37, 64, 87, 0.942); */
-}
-
-.confirmar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px;
-  width: 343.96px;
-  height: 75.05px;
-  background-color: white;
-  cursor: pointer;
-  border: 1px solid grey;
-  border-radius: 10px;
-  font-size: 23px;
-  color: grey;
 }
 
 .App {
@@ -75,7 +15,7 @@ h2 {
   gap: 32px;
 }
 
-.contenedor-img {
+.second-container {
   width: 431.25px;
   height: 700.92px;
   border: none;
@@ -83,7 +23,7 @@ h2 {
   overflow: hidden;
 }
 
-.contenedor-img img {
+.imagen-producto {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -106,14 +46,104 @@ h2 {
   gap: 8px;
 }
 
+header {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.botones {
+  display: flex;
+  align-items: center;
+  border-color: #475569;
+  gap: 7px;
+}
+
+.boton-contador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 100px;
+  border: 2px solid #cbd4e1;
+  margin: 5px;
+  height: 60.36px;
+  width: 60.36px;
+  background-color: white;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.boton-metodo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 424px;
+  height: 75px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 10px;
+  font-size: 23px;
+}
+
+.boton-imagenes {
+  border-radius: 100px;
+  padding: 0;
+  margin: 5px;
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.imagen-boton {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.metodos-pago {
+  display: grid;
+  gap: 20px;
+}
+
+.cantidad-orden {
+  font-size: 23px;
+  color: #0f1a2a;
+  margin: 5px;
+}
+
+.confirmar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  width: 343.96px;
+  height: 75.05px;
+  background-color: white;
+  cursor: pointer;
+  border: 1px solid grey;
+  border-radius: 10px;
+  font-size: 23px;
+  color: grey;
+}
+
 .text {
   font-family: sans-serif;
   color: #475569;
   font-size: 25px;
 }
 
+.small-text {
+  color: #475569;
+  font-size: 20px;
+}
+
 .text-contador {
-  font-family: sans-serif;
   color: #64748b;
   font-size: 25px;
 }
@@ -137,8 +167,83 @@ h2 {
   margin: 0 auto;
 }
 
-header {
+.container-resumen {
   display: flex;
-  position: relative;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.resumen-confirmar {
+  display: flex;
+  justify-content: center;
+  margin-top: 17px;
+  align-items: center;
+  width: 100%;
+  height: 75.05px;
+  background-color: #4d82f3;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-size: 23px;
+  color: white;
+}
+
+.resumen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 340px;
+}
+
+.resumen-texto {
+  color: #475569;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.resumen-imagen-producto {
+  width: 100%;
+  height: 100%;
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resumen-imagen-producto div {
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.resumen-imagen {
+  height: 50%;
+  width: 50%;
+}
+.fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.check {
+  width: 119px;
+  height: 119px;
+}
+
+.numero-pedido {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 5px;
+  width: 424px;
+  height: 75px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 10px;
+  font-size: 23px;
+  justify-content: center;
 }

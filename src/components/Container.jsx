@@ -3,24 +3,19 @@ import Cantidades from "./Cantidades";
 import Modificador from "./Modificador";
 import Preparacion from "./Preparacion";
 
-const Container = ({ getValueConfirmar }) => {
+const Container = ({
+  getValueConfirmar,
+  precio,
+  setPrecio,
+  modificador,
+  preparacion,
+  setModificador,
+  setPreparacion,
+}) => {
   //* Variable de estado para la cantidad de ordenes
   const [cantidad, setCantidad] = useState(1);
 
-  //* Variable de estado para el precio
-  const [precio, setPrecio] = useState(120);
-
-  //* Variable de estado para los modificadores
-  const [modificador, setModificador] = useState("");
-
-  //* Variable de estado para las preparaciones
-  const [preparacion, setPreparacion] = useState("");
-
-  // //* Variable de estado booleana para habilitar el botón de confirmar
-  // const [botonConfirmar, setBotonConfirmar] = useState(false);
-
   //* Función para manejar la cantidad de órdenes y el precio total
-
   const precioBase = 120;
   const manejarCantidad = (cuantos) => {
     const nuevaCantidad = cantidad + cuantos;
