@@ -1,8 +1,25 @@
-const Pago = () => {
+import { useNavigate } from "react-router-dom";
+
+const Pago = ({ setShowResumen }) => {
+  const navigate = useNavigate();
+
+  const handleShowResumen = () => {
+    setShowResumen(true);
+    navigate("/confirmado");
+  };
+
   return (
     <div className="contenedor">
       <header>
-        <button className="regresar">←</button>
+        <button
+          className="regresar"
+          onClick={() => {
+            navigate("/container");
+            setShowResumen(false);
+          }}
+        >
+          ←
+        </button>
         <h1 style={{ marginTop: "0px" }} className="titulo">
           Método de pago
         </h1>

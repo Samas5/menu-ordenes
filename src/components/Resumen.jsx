@@ -1,5 +1,4 @@
 import producto from "../images/solos.jpg";
-import Preparacion from "./Preparacion";
 
 const Resumen = ({ precio, preparacion, modificador }) => {
   return (
@@ -13,7 +12,7 @@ const Resumen = ({ precio, preparacion, modificador }) => {
           <p className="resumen-texto">Total</p>
           <span className="resumen-texto">{`$${precio}.00`}</span>
         </div>
-        <button className="resumen-confirmar">Confirmar</button>
+        <button className="confirmar-orden">Confirmar</button>
         <div className="resumen-imagen-producto">
           <img
             className="resumen-imagen"

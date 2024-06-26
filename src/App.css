@@ -117,7 +117,7 @@ header {
   margin: 5px;
 }
 
-.confirmar {
+.confirmar-seleccion {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,7 +175,7 @@ header {
   height: 100%;
 }
 
-.resumen-confirmar {
+.confirmar-orden {
   display: flex;
   justify-content: center;
   margin-top: 17px;

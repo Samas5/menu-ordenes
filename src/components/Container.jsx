@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Cantidades from "./Cantidades";
 import Modificador from "./Modificador";
 import Preparacion from "./Preparacion";
@@ -14,6 +15,9 @@ const Container = ({
 }) => {
   //* Variable de estado para la cantidad de ordenes
   const [cantidad, setCantidad] = useState(1);
+
+  //* React Router hook para navegar entre rutas
+  const navigate = useNavigate();
 
   //* Función para manejar la cantidad de órdenes y el precio total
   const precioBase = 120;
