@@ -53,7 +53,14 @@ const Container = ({
   return (
     <div className="contenedor">
       <header>
-        <button className="regresar">←</button>
+        <button
+          className="regresar"
+          onClick={() => {
+            navigate("/container");
+          }}
+        >
+          ←
+        </button>
         <h1 style={{ marginTop: "0px" }} className="titulo">
           Huevos estrellados {`$${precioBase}.00`}
         </h1>

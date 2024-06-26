@@ -148,7 +148,7 @@ header {
   font-size: 25px;
 }
 
-.contenedor-boton-mayor {
+.contenedor-boton-confirmar {
   display: grid;
   place-content: center;
 }

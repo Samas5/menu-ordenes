@@ -1,6 +1,9 @@
 import check from "../images/check.webp";
 
-const Confirmado = () => {
+const Confirmado = ({
+  showBotonConfirmarOrden,
+  setShowBotonConfirmarOrden,
+}) => {
   return (
     <div className="contenedor">
       <header>

@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Pago = ({ setShowResumen }) => {
+const Pago = ({ setShowResumen, setShowBotonConfirmar }) => {
   const navigate = useNavigate();
 
   const handleShowResumen = () => {
@@ -8,14 +9,20 @@ const Pago = ({ setShowResumen }) => {
     navigate("/confirmado");
   };
 
+  //* NAVEGACION
+  useEffect(() => {
+    setShowBotonConfirmar(false);
+  }, [setShowBotonConfirmar]);
+
   return (
     <div className="contenedor">
       <header>
         <button
           className="regresar"
           onClick={() => {
-            navigate("/container");
+            navigate(-1);
             setShowResumen(false);
+            setShowBotonConfirmar(true);
           }}
         >
           ←

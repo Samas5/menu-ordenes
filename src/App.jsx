@@ -24,12 +24,17 @@ function App() {
   const [showResumen, setShowResumen] = useState(false);
 
   //* Variable de estado para mostrar el botón de confirmar
-  const [showConfirmar, setShowConfirmar] = useState(false);
+  const [showBotonConfirmarOrden, setShowBotonConfirmarOrden] = useState(false);
 
   //* Función que pasamos como propiedad a Container. Obtiene el valor
   const getValueConfirmar = (value) => {
     setBotonConfirmar(value);
   };
+
+  //* NAVEGACION
+
+  //* Variable de estado para mostrar el botón de confirmar
+  const [showBotonConfirmar, setShowBotonConfirmar] = useState(true);
 
   return (
     <BrowserRouter>
@@ -52,14 +57,19 @@ function App() {
             />
             <Route
               path="/pago"
-              element={<Pago setShowResumen={setShowResumen} />}
+              element={
+                <Pago
+                  setShowResumen={setShowResumen}
+                  setShowBotonConfirmar={setShowBotonConfirmar}
+                />
+              }
             />
             <Route
               path="/resumen"
               element={
                 <Confirmado
-                  showConfirmar={showConfirmar}
-                  setShowConfirmar={setShowConfirmar}
+                  showBotonConfirmarOrden={showBotonConfirmarOrden}
+                  setShowBotonConfirmarOrden={setShowBotonConfirmarOrden}
                 />
               }
             />
@@ -79,40 +89,47 @@ function App() {
               preparacion={preparacion}
               modificador={modificador}
               setShowResumen={setShowResumen}
-              setShowConfirmar={setShowConfirmar}
+              setShowBotonConfirmarOrden={setShowBotonConfirmarOrden}
             />
           )}
         </div>
       </div>
-      <div className="contenedor-boton-mayor">
-        <Navegacion
-          botonConfirmar={botonConfirmar}
-          setShowResumen={setShowResumen}
-        />
+      <div className="contenedor-boton-confirmar">
+        {showBotonConfirmar && (
+          <Navegacion
+            botonConfirmar={botonConfirmar}
+            setShowResumen={setShowResumen}
+            setShowBotonConfirmar={setShowBotonConfirmar}
+          />
+        )}
       </div>
     </BrowserRouter>
   );
 }
-const Navegacion = ({ botonConfirmar, setShowResumen }) => {
+
+const Navegacion = ({
+  botonConfirmar,
+  setShowResumen,
+  setShowBotonConfirmar,
+}) => {
   const navigate = useNavigate();
 
   return (
-    <>
-      <button
-        className="confirmar-seleccion"
-        disabled={!botonConfirmar}
-        style={{
-          border: `${botonConfirmar === true ? "1px solid black" : ""}`,
-          color: `${botonConfirmar === true ? "black" : ""}`,
-        }}
-        onClick={() => {
-          setShowResumen(true);
-          navigate("/pago");
-        }}
-      >
-        Confirmar
-      </button>
-    </>
+    <button
+      className="confirmar-seleccion"
+      disabled={!botonConfirmar}
+      style={{
+        border: `${botonConfirmar === true ? "1px solid black" : ""}`,
+        color: `${botonConfirmar === true ? "black" : ""}`,
+      }}
+      onClick={() => {
+        setShowResumen(true);
+        setShowBotonConfirmar(false);
+        navigate("/pago");
+      }}
+    >
+      Confirmar
+    </button>
   );
 };
 
