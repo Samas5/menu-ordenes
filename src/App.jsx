@@ -6,6 +6,7 @@ import imagen from "./images/huevos-estrellados.png";
 import Pago from "./components/Pago";
 import Resumen from "./components/Resumen";
 import Confirmado from "./components/Confirmado";
+import PedidoConfirmado from "./components/PedidoConfirmado";
 
 function App() {
   //* Variable de estado para el precio
@@ -20,11 +21,23 @@ function App() {
   //* Variable de estado booleana para habilitar el botón de confirmar
   const [botonConfirmar, setBotonConfirmar] = useState(false);
 
+  //* Variable de estado para las notas
+  const [notas, setNotas] = useState("");
+
+  //* Variable de estado para la promoción
+  const [promocion, setPromocion] = useState("");
+
+  //* Variable de estado para el número del cliente
+  const [telefonoCliente, setTelefonoCliente] = useState("");
+
+  //* Variable de estado para el método de pago
+  const [formaPago, setFormaPago] = useState("");
+
   //* Variable de estado para mostrar Resumen
   const [showResumen, setShowResumen] = useState(false);
 
   //* Variable de estado para mostrar el botón de confirmar
-  const [showBotonConfirmarOrden, setShowBotonConfirmarOrden] = useState(false);
+  const [showBotonConfirmarOrden, setShowBotonConfirmarOrden] = useState(true);
 
   //* Función que pasamos como propiedad a Container. Obtiene el valor
   const getValueConfirmar = (value) => {
@@ -36,13 +49,18 @@ function App() {
   //* Variable de estado para mostrar el botón de confirmar
   const [showBotonConfirmar, setShowBotonConfirmar] = useState(true);
 
+  //* Funcióm para ocultar el botón de confirmar orden
+  const ocultarBotonConfirmarOrden = () => {
+    setShowBotonConfirmarOrden(!showBotonConfirmarOrden);
+  };
+
   return (
     <BrowserRouter>
       <div className="App">
         <div className="main">
           <Routes>
             <Route
-              path="/container"
+              path="/"
               element={
                 <Container
                   getValueConfirmar={getValueConfirmar}
@@ -52,6 +70,8 @@ function App() {
                   preparacion={preparacion}
                   setModificador={setModificador}
                   setPreparacion={setPreparacion}
+                  notas={notas}
+                  setNotas={setNotas}
                 />
               }
             />
@@ -61,17 +81,26 @@ function App() {
                 <Pago
                   setShowResumen={setShowResumen}
                   setShowBotonConfirmar={setShowBotonConfirmar}
+                  setPromocion={setPromocion}
+                  formaPago={formaPago}
+                  setFormaPago={setFormaPago}
+                  ocultarBotonConfirmarOrden={ocultarBotonConfirmarOrden}
                 />
               }
             />
             <Route
-              path="/resumen"
+              path="/confirmado"
               element={
                 <Confirmado
-                  showBotonConfirmarOrden={showBotonConfirmarOrden}
-                  setShowBotonConfirmarOrden={setShowBotonConfirmarOrden}
+                  ocultarBotonConfirmarOrden={ocultarBotonConfirmarOrden}
+                  telefonoCliente={telefonoCliente}
+                  setTelefonoCliente={setTelefonoCliente}
                 />
               }
+            />
+            <Route
+              path="/pedido-confirmado"
+              element={<PedidoConfirmado telefonoCliente={telefonoCliente} />}
             />
           </Routes>
         </div>
@@ -89,7 +118,10 @@ function App() {
               preparacion={preparacion}
               modificador={modificador}
               setShowResumen={setShowResumen}
-              setShowBotonConfirmarOrden={setShowBotonConfirmarOrden}
+              showBotonConfirmarOrden={showBotonConfirmarOrden}
+              notas={notas}
+              formaPago={formaPago}
+              ocultarBotonConfirmarOrden={ocultarBotonConfirmarOrden}
             />
           )}
         </div>
@@ -119,8 +151,9 @@ const Navegacion = ({
       className="confirmar-seleccion"
       disabled={!botonConfirmar}
       style={{
-        border: `${botonConfirmar === true ? "1px solid black" : ""}`,
-        color: `${botonConfirmar === true ? "black" : ""}`,
+        border: `${botonConfirmar ? "none" : ""}`,
+        color: `${botonConfirmar ? "white" : ""}`,
+        backgroundColor: `${botonConfirmar ? " #4d82f3" : ""}`,
       }}
       onClick={() => {
         setShowResumen(true);

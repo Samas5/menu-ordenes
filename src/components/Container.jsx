@@ -12,12 +12,11 @@ const Container = ({
   preparacion,
   setModificador,
   setPreparacion,
+  notas,
+  setNotas,
 }) => {
   //* Variable de estado para la cantidad de ordenes
   const [cantidad, setCantidad] = useState(1);
-
-  //* React Router hook para navegar entre rutas
-  const navigate = useNavigate();
 
   //* Función para manejar la cantidad de órdenes y el precio total
   const precioBase = 120;
@@ -39,13 +38,16 @@ const Container = ({
     setPreparacion(preparacionSel);
   };
 
+  //* Función para manejar las notas
+  const manejarNotas = (e) => {
+    setNotas(e.target.value); // Actualizamos el estado de las notas
+  };
+
   //* useEffect para habilitar el botón de confirmar
   useEffect(() => {
     if (modificador && preparacion) {
-      // setBotonConfirmar(true);
       getValueConfirmar(true);
     } else {
-      // setBotonConfirmar(false);
       getValueConfirmar(false);
     }
   }, [modificador, preparacion, getValueConfirmar]);
@@ -55,11 +57,11 @@ const Container = ({
       <header>
         <button
           className="regresar"
-          onClick={() => {
-            navigate("/container");
-          }}
+          /* onClick={() => {
+            navigate("/");
+          }} */
         >
-          ←
+          <p className="flechita">←</p>
         </button>
         <h1 style={{ marginTop: "0px" }} className="titulo">
           Huevos estrellados {`$${precioBase}.00`}
@@ -80,6 +82,8 @@ const Container = ({
         Notas
       </p>
       <textarea
+        value={notas}
+        onChange={manejarNotas}
         style={{
           width: "411.25px",
           height: "45px",
