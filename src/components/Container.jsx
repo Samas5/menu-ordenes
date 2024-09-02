@@ -14,7 +14,11 @@ const Container = ({
   setPreparacion,
   notas,
   setNotas,
+  setShowBotonConfirmar,
+  setShowResumen,
 }) => {
+  const navigate = useNavigate();
+
   //* Variable de estado para la cantidad de ordenes
   const [cantidad, setCantidad] = useState(1);
 
@@ -57,9 +61,11 @@ const Container = ({
       <header>
         <button
           className="regresar"
-          /* onClick={() => {
-            navigate("/");
-          }} */
+          onClick={() => {
+            navigate("/carrito");
+            setShowBotonConfirmar(false);
+            setShowResumen(true);
+          }}
         >
           <p className="flechita">←</p>
         </button>

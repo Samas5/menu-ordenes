@@ -7,6 +7,7 @@ import Pago from "./components/Pago";
 import Resumen from "./components/Resumen";
 import Confirmado from "./components/Confirmado";
 import PedidoConfirmado from "./components/PedidoConfirmado";
+import Carrito from "./components/Carrito";
 
 function App() {
   //* Variable de estado para el precio
@@ -60,6 +61,19 @@ function App() {
         <div className="main">
           <Routes>
             <Route
+              path="/carrito"
+              element={
+                <Carrito
+                  precio={precio}
+                  modificador={modificador}
+                  preparacion={preparacion}
+                  notas={notas}
+                  setShowBotonConfirmar={setShowBotonConfirmar}
+                  setShowResumen={setShowResumen}
+                />
+              }
+            />
+            <Route
               path="/"
               element={
                 <Container
@@ -72,6 +86,8 @@ function App() {
                   setPreparacion={setPreparacion}
                   notas={notas}
                   setNotas={setNotas}
+                  setShowBotonConfirmar={setShowBotonConfirmar}
+                  setShowResumen={setShowResumen}
                 />
               }
             />
@@ -147,22 +163,24 @@ const Navegacion = ({
   const navigate = useNavigate();
 
   return (
-    <button
-      className="confirmar-seleccion"
-      disabled={!botonConfirmar}
-      style={{
-        border: `${botonConfirmar ? "none" : ""}`,
-        color: `${botonConfirmar ? "white" : ""}`,
-        backgroundColor: `${botonConfirmar ? " #4d82f3" : ""}`,
-      }}
-      onClick={() => {
-        setShowResumen(true);
-        setShowBotonConfirmar(false);
-        navigate("/pago");
-      }}
-    >
-      Confirmar
-    </button>
+    <>
+      <button
+        className="confirmar-seleccion"
+        disabled={!botonConfirmar}
+        style={{
+          border: `${botonConfirmar ? "none" : ""}`,
+          color: `${botonConfirmar ? "white" : ""}`,
+          backgroundColor: `${botonConfirmar ? " #4d82f3" : ""}`,
+        }}
+        onClick={() => {
+          setShowResumen(true);
+          setShowBotonConfirmar(false);
+          navigate("/pago");
+        }}
+      >
+        Confirmar
+      </button>
+    </>
   );
 };
 
