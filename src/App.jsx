@@ -37,6 +37,14 @@ function App() {
   //* Variable de estado para mostrar Resumen
   const [showResumen, setShowResumen] = useState(false);
 
+  //* Variable de estado para el div de la imagen de Resumen
+  const [showResumenImagen, setShowResumenImagen] = useState(true);
+
+  //* Función para ocultar el div de la imagen de Resumen
+  const ocultarResumenImagen = () => {
+    setShowResumenImagen(true);
+  };
+
   //* Variable de estado para mostrar el botón de confirmar
   const [showBotonConfirmarOrden, setShowBotonConfirmarOrden] = useState(true);
 
@@ -44,8 +52,6 @@ function App() {
   const getValueConfirmar = (value) => {
     setBotonConfirmar(value);
   };
-
-  //* NAVEGACION
 
   //* Variable de estado para mostrar el botón de confirmar
   const [showBotonConfirmar, setShowBotonConfirmar] = useState(true);
@@ -88,6 +94,8 @@ function App() {
                   setNotas={setNotas}
                   setShowBotonConfirmar={setShowBotonConfirmar}
                   setShowResumen={setShowResumen}
+                  setShowResumenImagen={setShowResumenImagen}
+                  showResumenImagen={showResumenImagen}
                 />
               }
             />
@@ -138,6 +146,8 @@ function App() {
               notas={notas}
               formaPago={formaPago}
               ocultarBotonConfirmarOrden={ocultarBotonConfirmarOrden}
+              setShowResumenImagen={setShowResumenImagen}
+              showResumenImagen={showResumenImagen}
             />
           )}
         </div>
@@ -148,6 +158,7 @@ function App() {
             botonConfirmar={botonConfirmar}
             setShowResumen={setShowResumen}
             setShowBotonConfirmar={setShowBotonConfirmar}
+            ocultarResumenImagen={ocultarResumenImagen}
           />
         )}
       </div>
@@ -159,6 +170,7 @@ const Navegacion = ({
   botonConfirmar,
   setShowResumen,
   setShowBotonConfirmar,
+  ocultarResumenImagen,
 }) => {
   const navigate = useNavigate();
 
@@ -176,6 +188,7 @@ const Navegacion = ({
           setShowResumen(true);
           setShowBotonConfirmar(false);
           navigate("/pago");
+          ocultarResumenImagen();
         }}
       >
         Confirmar

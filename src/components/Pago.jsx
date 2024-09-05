@@ -7,7 +7,6 @@ const Pago = ({
   setPromocion,
   formaPago,
   setFormaPago,
-  ocultarBotonConfirmarOrden,
 }) => {
   const navigate = useNavigate();
 

@@ -11,14 +11,6 @@ const Carrito = ({
   setShowResumen,
   setShowBotonConfirmar,
 }) => {
-  //* Variable de estado para el div resumen imagen producto
-  const [showResumenImagen, setShowResumenImagen] = useState(false);
-
-  //* Función para ocultar el div resumen imagen producto
-  const ocultarResumenImagen = () => {
-    setShowResumenImagen(!showResumenImagen);
-  };
-
   //* Navegacion
   const navigate = useNavigate();
 

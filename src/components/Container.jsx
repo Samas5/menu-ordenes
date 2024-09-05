@@ -16,11 +16,19 @@ const Container = ({
   setNotas,
   setShowBotonConfirmar,
   setShowResumen,
+  setShowResumenImagen,
+  showResumenImagen,
 }) => {
+  //* Navegacion
   const navigate = useNavigate();
 
   //* Variable de estado para la cantidad de ordenes
   const [cantidad, setCantidad] = useState(1);
+
+  //* Función para ocultar el div de la imagen
+  const ocultarResumenImagen = () => {
+    setShowResumenImagen(false);
+  };
 
   //* Función para manejar la cantidad de órdenes y el precio total
   const precioBase = 120;
@@ -65,6 +73,7 @@ const Container = ({
             navigate("/carrito");
             setShowBotonConfirmar(false);
             setShowResumen(true);
+            ocultarResumenImagen();
           }}
         >
           <p className="flechita">←</p>
