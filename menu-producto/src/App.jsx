@@ -142,6 +142,7 @@ function App() {
               preparacion={preparacion}
               modificador={modificador}
               setShowResumen={setShowResumen}
+              setShowBotonConfirmar={setShowBotonConfirmar}
               showBotonConfirmarOrden={showBotonConfirmarOrden}
               notas={notas}
               formaPago={formaPago}

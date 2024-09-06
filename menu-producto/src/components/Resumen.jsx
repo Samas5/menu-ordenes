@@ -9,16 +9,22 @@ const Resumen = ({
   notas,
   formaPago,
   ocultarBotonConfirmarOrden,
+  setShowResumen,
   showBotonConfirmarOrden,
   setShowResumenImagen,
   showResumenImagen,
+  setShowBotonConfirmar,
 }) => {
   //* Función para cambiar funcionalidad del botón dependiendo de en qué ruta esté
   const handleBotonConfirmarOrden = () => {
     if (location.pathname === "/pago") {
       navigate("/confirmado");
+      ocultarBotonConfirmarOrden();
     } else if (location.pathname === "/carrito") {
       navigate("/");
+      ocultarResumenImagen(true);
+      setShowResumen(false);
+      setShowBotonConfirmar(true);
     }
   };
 
@@ -55,7 +61,6 @@ const Resumen = ({
               }}
               onClick={() => {
                 navigate("/");
-                ocultarBotonConfirmarOrden();
                 ocultarResumenImagen();
                 handleBotonConfirmarOrden();
               }}
