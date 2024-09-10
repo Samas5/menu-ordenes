@@ -4,23 +4,30 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
+// MIDDLEWARES
+app.use(cors()); // Para conectar al puerto 3000 de React
+app.use(express.json()); // Para los JSONS
 
+// CONEXIÓN
 mongoose.connect("mongodb://localhost:27017/comandera-comensales", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-const conexion = mongoose.connection;
+const conexion = mongoose.connection; // Guardamos la conexión en una variable
 conexion.once("open", () => {
-  console.log("CONECTADO A MONGODB");
+  console.log("SERVER ON");
 });
 
+// RUTA DE PRUEBA
 app.get("/", (req, res) => {
-  res.send("EXITOSO");
+  res.send("ruta funcionando correctamente");
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`Server corriendo en el puerto ${PORT}`);
 });
+
+// IMPORTAR RUTAS
+const productoRoutes = require("./routes/productos");
+app.use("/api", productoRoutes); // Las rutas usarán el prefijo /api
