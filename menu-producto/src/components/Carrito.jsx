@@ -33,31 +33,18 @@ const Carrito = ({
       <header>
         <div className="contenedor-carrito">
           <h1 className="titulo">Lista de productos</h1>
+          <p>preparacion: {productos.preparacion}</p>
         </div>
       </header>
 
-      <div>
-        <h1>Carrito de Compras</h1>
-        {productos.map((producto) => (
-          <div key={producto._id}>
-            <h2>{producto.nombre}</h2>
-            <p>Precio: {producto.precio}</p>
-            <p>Cantidad: {producto.cantidad}</p>
-            <p>Modificadores: {producto.modificadores}</p>
-            <p>Preparaciones: {producto.preparaciones}</p>
-            <p>Notas:{producto.notas} </p>
-          </div>
-        ))}
-      </div>
-
-      {/* <div className="second-container">
+      <div className="second-container">
         <ElementosCarrito
           precio={precio}
           notas={notas}
           preparacion={preparacion}
           modificador={modificador}
         />
-      </div> */}
+      </div>
     </>
   );
 };
