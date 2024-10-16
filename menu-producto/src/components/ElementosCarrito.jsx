@@ -1,6 +1,6 @@
-import "../ElementosCarrito.css";
-import { useState } from "react";
-import huevos from "../images/huevos-estrellados.png";
+import '../ElementosCarrito.css';
+import { useState } from 'react';
+import huevos from '../images/huevos-estrellados.png';
 
 const ElementosCarrito = ({
   precio,
@@ -11,12 +11,13 @@ const ElementosCarrito = ({
 }) => {
   const [cantidad, setCantidad] = useState(1);
 
-  const aumentarCantidad = () => setCantidad(cantidad + 1);
-  const disminuirCantidad = () => {
-    if (cantidad > 1) {
-      setCantidad(cantidad - 1);
-    }
-  };
+  // ADAPTAR
+  // const aumentarCantidad = () => setCantidad(cantidad + 1);
+  // const disminuirCantidad = () => {
+  //   if (cantidad > 1) {
+  //     setCantidad(cantidad - 1);
+  //   }
+  // };
 
   return (
     <div className="elemento-carrito">
