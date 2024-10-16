@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const clienteSchema = new mongoose.Schema({
   nombre: { type: String, required: true },
   numeroDeTelefono: { type: String, unique: true },
-  metodoDePago: String,
+  // metodoDePago: ,
   historialDePedidos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Orden' }],
 });
 
